@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Avail Fashions</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login.css">
+    <style>
+        /* Minimal placeholder styles */
+        .placeholder-note { text-align:center; color:#444; margin:18px 0; }
+        .placeholder-note small { color:#777; display:block; margin-top:6px; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Avail Fashions</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Shop</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="login-container">
+        <div class="login-box">
+            <h1>Create Account</h1>
+            <p class="subtitle">Register with mobile or email — OTP verification required</p>
+
+            <form id="registrationForm" class="registration-form">
+                <div class="form-group">
+                    <label for="regName">Full Name</label>
+                    <input type="text" id="regName" name="regName" placeholder="Your full name">
+                </div>
+
+                <!-- single mobile input -->
+
+                <div class="form-group">
+                    <label for="regMobile">Mobile Number (10 digits)</label>
+                    <input type="tel" id="regMobile" name="regMobile" placeholder="XXXXXXXXXX" inputmode="numeric" maxlength="10">
+                    <div id="regMobileError" class="inline-error hidden" aria-live="polite"></div>
+                </div>
+
+                <div style="display:flex;gap:8px;align-items:center;margin-bottom:12px;">
+                    <button type="button" class="btn-secondary" id="sendRegOtpBtn">Send OTP to Mobile</button>
+                    <div id="regSentMsg" class="inline-info" style="margin-left:6px;color:#333;font-weight:600"></div>
+                </div>
+
+                <div id="regOtpSection" class="hidden">
+                    <div class="form-group">
+                        <label for="regOtpInput">Enter OTP</label>
+                        <input type="text" id="regOtpInput" name="regOtpInput" placeholder="6-digit OTP" maxlength="6">
+                        <div id="regOtpError" class="inline-error hidden" aria-live="polite"></div>
+                        <div class="otp-timer" id="regOtpTimer"></div>
+                    </div>
+                    <div style="display:flex;gap:8px;">
+                        <button type="button" class="btn-primary" id="verifyRegOtpBtn">Verify OTP</button>
+                        <button type="button" class="btn-secondary hidden" id="resendRegOtpBtn">Resend</button>
+                    </div>
+                </div>
+
+                <div class="signup-link" style="margin-top:16px;">
+                    <a href="login.html">← Back to Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/register.js"></script>
+</body>
+</html>

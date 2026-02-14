@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avail Fashions - Trendy Fashion Store</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="theme-modern">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1>Avail Fashions</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="products.html">Shop</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="cart.html" class="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a></li>
+                    <li class="user-menu">
+                        <div class="user-profile-btn" id="userProfileBtn">
+                            <span class="user-avatar" id="userAvatar">👤</span>
+                            <span id="userName">Account</span>
+                        </div>
+                        <div class="dropdown-menu" id="dropdownMenu">
+                            <a href="profile.html" id="profileLink">My Profile</a>
+                            <a href="#" id="logoutBtn">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Welcome to Avail Fashions</h2>
+            <p>Discover the Latest Trends in Fashion</p>
+            <a href="products.html" class="cta-btn">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured">
+        <div class="container">
+            <h2>Featured Collections</h2>
+            <div class="products-grid" id="featured-products">
+                <!-- Products loaded via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <h2>Shop by Category</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="category-icon">👕</div>
+                    <h3>Men's Fashion</h3>
+                    <a href="products.html?category=mens">Browse</a>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">👗</div>
+                    <h3>Women's Fashion</h3>
+                    <a href="products.html?category=womens">Browse</a>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">👟</div>
+                    <h3>Accessories</h3>
+                    <a href="products.html?category=accessories">Browse</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Avail Fashions</h2>
+            <p>At Avail Fashions, we believe that great fashion should be accessible to everyone. 
+            Our curated collection brings you the latest trends from around the world. 
+            We're committed to quality, style, and customer satisfaction.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Details</h3>
+                    <p>
+                        <strong>Email:</strong> <a href="mailto:gowthamkumarnaikb143@gmail.com">gowthamkumarnaikb143@gmail.com</a>
+                    </p>
+                    <p>
+                        <strong>Phone:</strong> <a href="tel:9391852823">+91 9391852823</a>
+                    </p>
+                    <p>We'd love to hear from you! Send us your questions, feedback, or inquiries and we'll respond as soon as possible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="mailto:gowthamkumarnaikb143@gmail.com">Email Us</a></li>
+                        <li><a href="tel:9391852823">Call: 9391852823</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Avail Fashions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

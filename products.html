@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Avail Fashions</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1>Avail Fashions</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Shop</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="cart.html" class="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a></li>
+                    <li class="user-menu">
+                        <div class="user-profile-btn" id="userProfileBtn">
+                            <span class="user-avatar" id="userAvatar">👤</span>
+                            <span id="userName">Account</span>
+                        </div>
+                        <div class="dropdown-menu" id="dropdownMenu">
+                            <a href="profile.html" id="profileLink">My Profile</a>
+                            <a href="#" id="logoutBtn">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Shop Section -->
+    <section class="shop">
+        <div class="container">
+            <h1>Shop Our Collection</h1>
+            
+            <!-- Filters -->
+            <div class="shop-wrapper">
+                <aside class="filters">
+                    <h3>Filters</h3>
+                    
+                    <div class="filter-group">
+                        <h4>Category</h4>
+                        <label><input type="checkbox" value="mens" class="category-filter"> Men's Fashion</label>
+                        <label><input type="checkbox" value="womens" class="category-filter"> Women's Fashion</label>
+                        <label><input type="checkbox" value="accessories" class="category-filter"> Accessories</label>
+                    </div>
+
+                    <div class="filter-group">
+                        <h4>Price Range</h4>
+                        <label>
+                            <input type="range" min="0" max="500" value="500" id="price-range">
+                            <span id="price-display">$0 - $500</span>
+                        </label>
+                    </div>
+
+                    <div class="filter-group">
+                        <h4>Sort By</h4>
+                        <select id="sort-select">
+                            <option value="newest">Newest</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="popular">Most Popular</option>
+                        </select>
+                    </div>
+
+                    <button class="reset-filters">Reset Filters</button>
+                </aside>
+
+                <!-- Products Grid -->
+                <div class="products-section">
+                    <div class="products-grid" id="products-grid">
+                        <!-- Products loaded via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="mailto:gowthamkumarnaikb143@gmail.com">Email Us</a></li>
+                        <li><a href="tel:9391852823">Call: 9391852823</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Avail Fashions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/shop.js"></script>
+</body>
+</html>

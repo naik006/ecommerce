@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Avail Fashions</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Avail Fashions</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Shop</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="login-container">
+        <div class="login-box">
+            <h1>Welcome Back</h1>
+            <p class="subtitle">Login to your account</p>
+
+            <!-- Password Login Section (OTP removed) -->
+            <div class="login-section">
+                <h2>Login with Mobile & Password</h2>
+                <form id="passwordForm">
+                    <div class="form-group">
+                        <label for="passwordMobile">Mobile Number *</label>
+                        <div id="mobileError" class="inline-error hidden" aria-live="polite"></div>
+                        <input type="tel" id="passwordMobile" name="passwordMobile" placeholder="XXXXXXXXXX" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" title="Enter 10 digit mobile number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="passwordInput">Password *</label>
+                        <div class="password-input-wrapper">
+                            <input type="password" id="passwordInput" name="password" placeholder="Enter your password" required>
+                            <span class="toggle-password" id="togglePasswordLogin">👁️</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary">Login</button>
+                </form>
+            </div>
+
+            <!-- Divider -->
+            <div class="divider">OR</div>
+
+            <!-- Google Login -->
+            <div class="login-section" id="googleLoginSection">
+                <button type="button" class="btn-google" id="googleLoginBtn">
+                    <span>🔐</span> Sign in with Google
+                </button>
+            </div>
+
+            <!-- Sign Up Link -->
+            <div class="signup-link">
+                New user? <a href="#" id="signupLink">Create an account</a>
+            </div>
+        </div>
+
+        <!-- Quick Demo Users -->
+        <div class="demo-info">
+            <h3>Demo Users (for testing)</h3>
+            <p><strong>Password Login:</strong></p>
+            <p>Mobile: 9391852823</p>
+            <p>Password: Password@123</p>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>
