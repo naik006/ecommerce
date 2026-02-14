@@ -5,8 +5,8 @@ const mockUsers = [
         name: 'Gowtham Kumar',
         mobile: '9391852823',
         email: 'gowthamkumarnaikb143@gmail.com',
-        password: '',
-        isRegistered: false,
+        password: 'Password@123',
+        isRegistered: true,
         createdAt: '2025-01-15'
     },
     {

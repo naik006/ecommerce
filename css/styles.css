@@ -1,4 +1,6 @@
 /* ==================== GLOBAL STYLES ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -33,7 +35,7 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: var(--dark-text);
     background-color: #ffffff;
     line-height: 1.6;
@@ -687,6 +689,10 @@ body {
 /* ==================== USER PROFILE MENU ==================== */
 .user-menu {
     position: relative;
+}
+
+.user-menu.not-logged-in .user-avatar {
+    display: none;
 }
 
 .user-profile-btn {

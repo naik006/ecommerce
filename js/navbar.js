@@ -1,6 +1,12 @@
 // Navbar Script - Handles user profile and dropdown menu
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Safety check - ensure authManager is initialized
+    if (typeof authManager === 'undefined') {
+        console.error('authManager not initialized. Make sure auth.js is loaded before navbar.js');
+        return;
+    }
+
     // Update navbar based on login status
     updateNavbar();
 
@@ -11,7 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (userProfileBtn && dropdownMenu) {
         userProfileBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            dropdownMenu.classList.toggle('show');
+            
+            // Only toggle if user is logged in
+            if (authManager.isLoggedIn()) {
+                dropdownMenu.classList.toggle('show');
+            } else {
+                // Redirect to login if not logged in
+                window.location.href = 'login.html';
+            }
         });
 
         // Close dropdown when clicking outside
@@ -31,20 +44,52 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function updateNavbar() {
+    // Safety check
+    if (typeof authManager === 'undefined') {
+        console.error('authManager not initialized');
+        return;
+    }
+
     const userProfileBtn = document.getElementById('userProfileBtn');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    const profileLink = document.getElementById('profileLink');
     const userName = document.getElementById('userName');
-    const navLinks = document.querySelector('.nav-links');
+    const userMenu = document.querySelector('.user-menu');
 
     if (!authManager.isLoggedIn()) {
-        // User not logged in - show Login button
+        // User not logged in
+        if (userMenu) {
+            userMenu.classList.add('not-logged-in');
+        }
         if (userProfileBtn) {
-            userProfileBtn.innerHTML = '<a href="login.html" style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 8px;">🔐 <span>Login</span></a>';
+            userProfileBtn.style.cursor = 'pointer';
+            userProfileBtn.textContent = '🔐 Login';
+            userProfileBtn.style.gap = '8px';
+            userProfileBtn.style.display = 'flex';
+            userProfileBtn.style.alignItems = 'center';
+        }
+        if (dropdownMenu) {
+            dropdownMenu.style.display = 'none';
         }
     } else {
-        // User logged in - show user name and dropdown
+        // User logged in
         const user = authManager.getCurrentUser();
-        if (userName) {
-            userName.textContent = user.name.split(' ')[0]; // Show first name
+        if (userMenu) {
+            userMenu.classList.remove('not-logged-in');
+        }
+        if (userProfileBtn) {
+            userProfileBtn.style.cursor = 'pointer';
+            userProfileBtn.innerHTML = '<span class="user-avatar">👤</span><span id="userName">' + (user.name.split(' ')[0] || 'User') + '</span>';
+        }
+        
+        // Hide profile link, show only logout
+        if (profileLink) {
+            profileLink.style.display = 'none';
+        }
+        
+        // Show dropdown menu
+        if (dropdownMenu) {
+            dropdownMenu.style.display = 'block';
         }
     }
 }
@@ -52,6 +97,9 @@ function updateNavbar() {
 function logout() {
     if (confirm('Are you sure you want to logout?')) {
         authManager.logout();
+        
+        // Update navbar immediately
+        updateNavbar();
         
         // Show alert
         const alertBox = document.createElement('div');
