@@ -148,7 +148,7 @@ class PaymentHandler {
                 </div>
                 <div class="summary-item-details">
                     <div class="summary-item-name">${item.name}</div>
-                    <div class="summary-item-price">₹${item.price}</div>
+                    <div class="summary-item-price">₹${Math.round(item.price * (typeof USD_TO_INR !== 'undefined' ? USD_TO_INR : (window.USD_TO_INR || 83))).toLocaleString('en-IN')}</div>
                     <div class="summary-item-qty">Qty: ${item.quantity}</div>
                 </div>
             `;
@@ -200,8 +200,10 @@ class PaymentHandler {
 
     // Calculate subtotal
     calculateSubtotal() {
+        // Return subtotal in INR (convert stored USD prices using USD_TO_INR)
+        const rate = (typeof USD_TO_INR !== 'undefined') ? USD_TO_INR : (window.USD_TO_INR || 83);
         return this.cart.reduce((total, item) => {
-            return total + (item.price * item.quantity);
+            return total + Math.round(item.price * rate * item.quantity);
         }, 0);
     }
 

@@ -44,8 +44,15 @@ function initializeFilters() {
     // Price range filter
     const priceRange = document.getElementById('price-range');
     if (priceRange) {
+        // Ensure slider operates in INR by using USD_TO_INR conversion
+        const rate = (typeof USD_TO_INR !== 'undefined') ? USD_TO_INR : (window.USD_TO_INR || 83);
+        const usdMax = 500;
+        priceRange.max = usdMax * rate;
+        priceRange.value = priceRange.max;
+        document.getElementById('price-display').textContent = `₹0 - ₹${parseInt(priceRange.value).toLocaleString('en-IN')}`;
+
         priceRange.addEventListener('input', (e) => {
-            document.getElementById('price-display').textContent = `$0 - $${e.target.value}`;
+            document.getElementById('price-display').textContent = `₹0 - ₹${parseInt(e.target.value).toLocaleString('en-IN')}`;
             debounceFilters();
         });
     }
@@ -76,8 +83,9 @@ function applyFilters() {
         .map(filter => filter.value);
 
     // Get price range
+    // Treat the slider value as INR; convert product USD price to INR for comparison
     const priceRange = document.getElementById('price-range') ? 
-        parseFloat(document.getElementById('price-range').value) : 500;
+        parseFloat(document.getElementById('price-range').value) : (500 * ((typeof USD_TO_INR !== 'undefined') ? USD_TO_INR : (window.USD_TO_INR || 83)));
 
     // Get sort option
     const sortBy = document.getElementById('sort-select') ? 
@@ -91,8 +99,8 @@ function applyFilters() {
         filtered = filtered.filter(product => selectedCategories.includes(product.category));
     }
 
-    // Apply price filter
-    filtered = filtered.filter(product => product.price <= priceRange);
+    // Apply price filter (convert product price from USD to INR using global USD_TO_INR)
+    filtered = filtered.filter(product => (product.price * (typeof USD_TO_INR !== 'undefined' ? USD_TO_INR : 1)) <= priceRange);
 
     // Apply sorting
     filtered = sortProducts(filtered, sortBy);
@@ -111,8 +119,9 @@ function resetFilters() {
     // Reset price range
     const priceRange = document.getElementById('price-range');
     if (priceRange) {
-        priceRange.value = 500;
-        document.getElementById('price-display').textContent = '$0 - $500';
+        const rate = (typeof USD_TO_INR !== 'undefined') ? USD_TO_INR : (window.USD_TO_INR || 83);
+        priceRange.value = 500 * rate;
+        document.getElementById('price-display').textContent = `₹0 - ₹${parseInt(priceRange.value).toLocaleString('en-IN')}`;
     }
 
     // Reset sort
